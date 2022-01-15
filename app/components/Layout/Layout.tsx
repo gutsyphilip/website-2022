@@ -43,7 +43,7 @@ const Layout: React.FC = ({ children }) => {
           <h6>FIND ME:</h6>
           <div>
             {LINKS.map(({ name, url }) => {
-              return <a target="_blank" href={url}>{name}</a>
+              return <a target="_blank" href={url} key={name}>{name}</a>
             })}
           </div>
         </div>

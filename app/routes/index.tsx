@@ -83,7 +83,7 @@ export default function Index() {
         <div className='index_main_links'>
           {
             archives.map(({ name, url }) => {
-              return <Link to={url}>{name}</Link>
+              return <Link to={url} key={name}>{name}</Link>
             })
           }
         </div>
@@ -91,7 +91,7 @@ export default function Index() {
           <h6>OTHER ARCHIVES</h6>
           {
             otherAchives.map(({ name, to }) => {
-              return <a href={to} target="_blank">{name}</a>
+              return <a href={to} target="_blank" key={name}>{name}</a>
             })
           }
         </div>
