@@ -1,0 +1,72 @@
+@import "./breakpoint";
+
+@mixin container {
+  padding: 0 20px;
+  margin: 0 auto;
+  max-width: 100%;
+  @include md(){
+    padding: 0 32px;
+  }
+  @include lp() {
+    padding: 0 64px;
+  }
+
+  @include xl() {
+    max-width: 1600px;
+  }
+}
+
+@mixin applyBgColors{
+  &:nth-child(1){
+    background: $theme-1 !important;
+  }
+  &:nth-child(2){
+    background: $theme-2 !important;
+  }
+  &:nth-child(3){
+    background: $theme-3 !important;
+  }
+  &:nth-child(4){
+    background: $theme-4 !important;
+  }
+}
+
+// Grid gen utils
+@mixin grid-auto-fit($min-width) {
+  @supports (grid-area: auto) {
+    grid-template-columns: repeat(auto-fit, minmax($min-width, 1fr));
+  }
+}
+
+@mixin grid-auto-fill($min-width) {
+  @supports (grid-area: auto) {
+    grid-template-columns: repeat(auto-fill, minmax($min-width, 1fr));
+  }
+}
+
+// Due to an error with sass-loader, grid-1-12 is not there
+
+$columns: 2, 3, 4, 5, 6, 7, 8, 9, 10, 11;
+$starts: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12;
+
+@each $start in $starts {
+  @each $col in $columns {
+    .grid-span-#{$start}-#{$col} {
+      grid-column: col-start $start / span $col;
+    }
+  }
+}
+
+
+// Desktop text breaks
+.text-break{
+  display: none;
+  @include md(){
+    display: block;
+  }
+}
+
+
+.gatsby-image-wrapper-constrained {
+  height: 100%;
+}

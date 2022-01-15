@@ -1,0 +1,44 @@
+@import "../breakpoint";
+
+.index{
+  &_hero{
+    &_desc{
+      max-width: 448px;
+    }
+  }
+
+  &_main{
+    margin-top: 48px;
+
+    @include md(){
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+
+    &_links{
+      a{
+        font-weight: 500;
+        display: block;
+        width: fit-content;
+        font-size: 30px;
+        line-height: 180%;
+      }
+    }
+
+    &_others{
+      margin-top: 48px;
+
+      @include md(){
+        margin-top: 0;
+      }
+      a{
+        font-weight: 500;
+        display: block;
+        width: fit-content;
+        font-size: 20px;
+        line-height: 180%;
+      }
+    }
+  }
+}
+

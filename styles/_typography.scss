@@ -1,0 +1,139 @@
+@import "./breakpoint";
+
+// ================= Display Typography =================
+@mixin display-1 {
+  font-style: normal;
+  font-stretch: normal;
+  letter-spacing: -1.21px;
+  font-weight: 500;
+  font-size: 40px;
+  line-height: 110%;
+
+  @include md() {
+    font-size: 72px;
+  }
+
+  @include lp() {
+    font-size: 104px;
+  }
+}
+
+@mixin display-2 {
+  font-weight: 900;
+  font-size: 48px;
+  line-height: 120%;
+  letter-spacing: -1.21px;
+
+
+  @include md() {
+    font-size: 54px;
+
+  }
+}
+
+// ================= Heading Typography ================= //
+
+@mixin heading-1 {
+  font-size: 28px;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.21;
+  letter-spacing: -0.39px;
+}
+
+@mixin heading-2 {
+  font-size: 24px;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.25;
+  letter-spacing: -0.24px;
+}
+
+@mixin heading-3 {
+  font-size: 20px;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 28px;
+  letter-spacing: -0.12px;
+}
+
+@mixin heading-4 {
+  font-size: 18px;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 26px;
+  letter-spacing: -0.11px;
+}
+
+@mixin heading-5 {
+  font-size: 16px;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.38;
+  letter-spacing: -0.09px;
+}
+
+// ================= Body Typography =================
+@mixin body-1 {
+  font-size: 18px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 164%;
+  letter-spacing: -0.2px;
+}
+
+@mixin body-2 {
+  font-size: 16px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 150%;
+  letter-spacing: -0.12px;
+}
+
+@mixin body-3 {
+  font-size: 14px;
+  font-style: normal;
+  font-weight: normal;
+  line-height: 21px;
+  letter-spacing: -0.12px;
+}
+
+@mixin small-text {
+  font-size: 12px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 22px;
+  letter-spacing: -0.12px;
+}
+
+
+
+.vertical-text {
+  @include body-2;
+  position: fixed;
+  text-transform: uppercase;
+  left: 17px;
+  top: 420px;
+  z-index: 2;
+  -webkit-transform: rotate(-90deg);
+  -ms-transform: rotate(-90deg);
+  transform: rotate(-90deg);
+  -webkit-transform-origin: 0% 100%;
+  -ms-transform-origin: 0% 100%;
+  transform-origin: 0% 100%;
+  color: #000;
+  font-size: 12px;
+  line-height: 16px;
+
+  @include md(){
+    left: 65px;
+  }
+}
