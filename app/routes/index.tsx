@@ -40,10 +40,6 @@ export let loader: LoaderFunction = () => {
         to: 'https://diaryofcreator.com',
       },
       {
-        name: 'The Breakdown Show',
-        to: 'demos/about',
-      },
-      {
         name: 'Pod Wey Don Cast',
         to: 'demos/params',
       },

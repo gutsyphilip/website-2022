@@ -171,6 +171,8 @@ input:where([type='search']) {
 
 .navbar{
   @include container;
+  left: 0;
+  right: 0;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -185,6 +187,7 @@ input:where([type='search']) {
       text-decoration: none !important;
       font-size: 14px;
       line-height: 150%;
+      font-weight: 500;
     }
 
 }
@@ -195,6 +198,7 @@ input:where([type='search']) {
   padding: 48px 48px 48px 0;
   padding-bottom: 48px;
   border-bottom: 1px solid var(--color-border);
+
 }
 
 
