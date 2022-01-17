@@ -13,7 +13,7 @@ export type PostMarkdownAttributes = {
   title: string;
 };
 
-const postsPath = path.join(__dirname, "../../articles");
+const postsPath = path.join(__dirname, "/articles");
 
 function isValidPostAttributes(
   attributes: any
