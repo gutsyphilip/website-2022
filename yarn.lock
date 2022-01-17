@@ -118,7 +118,7 @@
   dependencies:
     react-router-dom "^6.2.1"
 
-"@remix-run/serve@^1.0.6":
+"@remix-run/serve@^1.1.1":
   version "1.1.1"
   resolved "https://npm.remix.run/download/@remix-run/serve/1.1.1/af597383742e0f6dae2b2bfd01bf5ae4e1d3e53ba5fd2f4f04efebcf3ee48b8d#7df7f5223773e2ec63d797d3e5efac09466d635f"
   integrity sha512-Fq9x9snX8MUThFNacqnWwXecdHd8KP1nPtHEsmaVg6iesz4hEoVrJPOXliKlLHR6aDklatfGSXd7ihUJ8fGSNg==
@@ -139,6 +139,14 @@
     react-router-dom "^6.2.1"
     set-cookie-parser "^2.4.8"
     source-map "^0.7.3"
+
+"@remix-run/vercel@^1.1.1":
+  version "1.1.1"
+  resolved "https://npm.remix.run/download/@remix-run/vercel/1.1.1/1a7f4fa9cb0c4a10a5eebf3bdf4fed13bec30fc51ca38c3dc2763996ff64c0e1#8947a9b81c4cbdc78d318121cd601eb20e83d33e"
+  integrity sha512-9K3XBrTuaeJvfqIigl5tFhKFE2sAOpq7r8MqQcQ8LbaMgXxPJXlNEoj7oqwXW3trcGkaOFBUtMLfTwKHO1dpLQ==
+  dependencies:
+    "@remix-run/node" "1.1.1"
+    "@remix-run/server-runtime" "1.1.1"
 
 "@rollup/pluginutils@^4.0.0":
   version "4.1.2"
