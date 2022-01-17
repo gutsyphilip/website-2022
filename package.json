@@ -5,7 +5,7 @@
   "license": "",
   "scripts": {
     "build:css": "node-sass ./styles -o ./app/styles --output-style compressed",
-    "build": "yarn run build:css && remix build",
+    "build": "yarn run build:css && cp -R ./articles ./api/articles && remix build",
     "dev:css": "npm run build:css && node-sass -rw ./styles -o ./app/styles",
     "dev:app": "remix dev",
     "dev": "concurrently \"yarn:dev:*\"",
