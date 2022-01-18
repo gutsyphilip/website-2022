@@ -12,7 +12,7 @@ export type Post = {
 export type PostMarkdownAttributes = {
   title: string;
 };
-const postsPath = path.resolve("./articles");
+const postsPath = path.join(__dirname, "../articles");
 
 function isValidPostAttributes(
   attributes: any
