@@ -3,18 +3,18 @@ import { useLoaderData, json, Link } from 'remix';
 import Hero from '~/components/Hero';
 
 import stylesUrl from '~/styles/routes/index.css';
+import { getPostsFromRoute } from "~/helpers/mdloader";
 
 
 type IndexData = {
   archives: Array<{ name: string; url: string }>;
   otherAchives: Array<{ name: string; to: string }>;
+  articles: any[];
+  web3Notes: any[];
 };
 
-// Loaders provide data to components and are only ever called on the server, so
-// you can connect to a database or run any server side code you want right next
-// to the component that renders it.
-// https://remix.run/api/conventions#loader
-export let loader: LoaderFunction = () => {
+
+export let loader: LoaderFunction = async () => {
   let data: IndexData = {
     archives: [
       {
@@ -24,6 +24,10 @@ export let loader: LoaderFunction = () => {
       {
         name: 'Articles',
         url: 'articles',
+      },
+      {
+        name: 'Web3 Diaries',
+        url: 'web3',
       },
       {
         name: 'Work',
@@ -44,17 +48,19 @@ export let loader: LoaderFunction = () => {
         to: 'demos/params',
       },
     ],
+    articles: await getPostsFromRoute('articles'),
+    web3Notes: await getPostsFromRoute('web3','seriesIndex')
   };
 
-  // https://remix.run/api/remix#json
+
   return json(data);
 };
 
-// https://remix.run/api/conventions#meta
+
 export let meta: MetaFunction = () => {
   return {
-    title: 'Remix Starter',
-    description: 'Welcome to remix!',
+    title: 'Philip Obosi',
+    description: 'The home on my mental emesis.',
   };
 };
 
@@ -62,9 +68,9 @@ export let links: LinksFunction = () => {
   return [{ rel: 'stylesheet', href: stylesUrl }];
 };
 
-// https://remix.run/guides/routing#index-routes
+
 export default function Index() {
-  let { archives, otherAchives } = useLoaderData<IndexData>();
+  let { articles,web3Notes } = useLoaderData<IndexData>();
 
   return (
     <div>
@@ -73,25 +79,51 @@ export default function Index() {
           <p className='index_hero_desc'>
             I am a creator, archiving the most useful parts of my life on the internet in hopes of dying empty.
           </p>
+          {/*<p>Building for creators at <a href="https://creathor.app" target="_blank">Creathor</a>.</p>*/}
         </div>
       </Hero>
-      <div className='index_main'>
-        <div className='index_main_links'>
-          {
-            archives.map(({ name, url }) => {
-              return <Link to={url} key={name}>{name}</Link>
-            })
-          }
+      {/*<div className='index_main'>*/}
+      {/*  <div className='index_main_links'>*/}
+      {/*    {*/}
+      {/*      archives.map(({ name, url }) => {*/}
+      {/*        return <Link to={url} key={name}>{name}</Link>*/}
+      {/*      })*/}
+      {/*    }*/}
+      {/*  </div>*/}
+      {/*  <div className='index_main_others'>*/}
+      {/*    <h6>OTHER ARCHIVES</h6>*/}
+      {/*    {*/}
+      {/*      otherAchives.map(({ name, to }) => {*/}
+      {/*        return <a href={to} target="_blank" key={name}>{name} &nbsp;↗</a>*/}
+      {/*      })*/}
+      {/*    }*/}
+      {/*  </div>*/}
+      {/*</div>*/}
+      <Hero>
+        <div className='index_articles_main'>
+          <header>
+            <h4>WEB3 NOTES</h4>
+            <p>Byte-sized notes from my learnings about web 3.0 and the blockchain. I hope you find them easy to follow.</p>
+          </header>
+          <div className='index_articles_main_numberedList'>
+            {web3Notes?.map((article: any) => (
+                <Link className='index_articles_main_numberedList_item' key={article.slug} to={article.slug}>{article.title}</Link>
+            ))}
+          </div>
         </div>
-        <div className='index_main_others'>
-          <h6>OTHER ARCHIVES</h6>
-          {
-            otherAchives.map(({ name, to }) => {
-              return <a href={to} target="_blank" key={name}>{name}</a>
-            })
-          }
+      </Hero>
+      <Hero>
+        <div className='index_articles_main'>
+          <header>
+            <h4>OTHER READS</h4>
+          </header>
+          <div className='index_articles_main_list'>
+            {articles?.map((article: any) => (
+                <Link className='index_articles_main_list_item' key={article.slug} to={article.slug}>{article.title}</Link>
+            ))}
+          </div>
         </div>
-      </div>
+      </Hero>
     </div>
   );
 }

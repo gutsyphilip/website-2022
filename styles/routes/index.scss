@@ -1,9 +1,13 @@
 @import "../breakpoint";
+@import "../helpers";
+@import "../typography";
 
 .index{
   &_hero{
     &_desc{
       max-width: 448px;
+      @include  heading-2;
+      font-weight: 400;
     }
   }
 
@@ -37,6 +41,54 @@
         width: fit-content;
         font-size: 20px;
         line-height: 180%;
+      }
+    }
+  }
+  &_articles{
+    &_main{
+      margin-top: 48px;
+      max-width: 770px;
+
+      &_list,&_numberedList{
+        margin-top: 24px;
+        &_item{
+          display: flex;
+          align-items: center;
+          width: fit-content;
+          padding: 12px 0;
+          text-decoration: underline;
+          font-size: 18px;
+
+
+          &:hover{
+            opacity: .8;
+          }
+
+          &:not(:first-child){
+            margin-top: 4px;
+          }
+        }
+      }
+      &_numberedList{
+        counter-reset: section;
+
+        &_item{
+          &::before{
+            counter-increment: section;
+            content: "" counter(section) "";
+            background: var(--color-foreground);
+            color: var(--color-background);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            padding: 8px;
+            font-size: 16px;
+            margin-right: 8px;
+          }
+        }
       }
     }
   }
